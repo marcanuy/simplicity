@@ -26,9 +26,9 @@ $ chmod 700 scripts/.credentials.conf
 
 There are two basic scripts that are just wrappers of the main duplicity program, that makes it easy to use them from the console with the proper configuration already set.
 
-* `duplicity_to_target.sh <parameters>` -> `duplicity <parameters> ${BACKUP_SERVER}`
+* `duplicity_to_target.sh <parameters>` -> RUNS -> `duplicity <parameters> ${BACKUP_SERVER}`
 
-* __TO-DO__ `duplicity_from_target.sh <parameters>` -> `duplicity <parameters except last one> ${BACKUP_SERVER} <last parameter>`
+* __TO-DO__ `duplicity_from_target.sh <parameters>` -> RUNS -> `duplicity <parameters except last one> ${BACKUP_SERVER} <last parameter>`
 
 ### Usage example
 

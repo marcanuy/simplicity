@@ -1,7 +1,7 @@
 # simplicity
-A set of Bash scripts to ease Duplicity usage.
+A set of Bash scripts to ease Duplicity interactive usage.
 
-Designed for using [Amazon Simple Storage Service (S3)](https://aws.amazon.com/s3) as the backup server in mind.
+Designed for using [Amazon Simple Storage Service (S3)](https://aws.amazon.com/s3) as the backup server in mind. It handles credentials and keep server URL so you can focus on specifying just Duplicity actions. 
 
 ### Getting Started
 
@@ -32,12 +32,28 @@ There are two basic scripts that are just wrappers of the main duplicity program
 
 ### Usage example
 
+#### Running a cleanup action
 ```shell
 $ duplicity_to_target.sh cleanup --extra-clean
 
 Command to run: duplicity cleanup --extra-clean s3://s3-us-west-2.amazonaws.com/mybucket/backup
 1) Confirm
-2) Quit
+2) Dry-Run
+3) Quit
 Please enter your choice: 1
 /usr/bin/duplicity cleanup --extra-clean s3://s3-us-west-2.amazonaws.com/mybucket/backup
+```
+
+#### Dry-run a collection-status action
+```shell
+$ ./duplicity_to_target.sh collection-status
+Command to run: duplicity collection-status s3://s3-us-west-2.amazonaws.com/mybucket/backup
+1) Confirm
+2) Dry-Run
+3) Quit
+Please enter your choice: 2
+Running: /usr/bin/duplicity collection-status --dry-run s3://s3-us-west-2.amazonaws.com/mybucket/backup
+Local and Remote metadata are synchronized, no sync needed.
+Last full backup date: Tue Nov 17 12:45:39 2015
+(....)
 ```

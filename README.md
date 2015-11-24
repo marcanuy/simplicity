@@ -1,5 +1,5 @@
 # simplicity
-A set of Bash scripts to ease Duplicity interactive usage.
+A set of Bash scripts to ease [Duplicity](http://duplicity.nongnu.org) interactive usage.
 
 Designed for using [Amazon Simple Storage Service (S3)](https://aws.amazon.com/s3) as the backup server in mind. It handles credentials and keep server URL so you can focus on specifying just Duplicity actions. 
 

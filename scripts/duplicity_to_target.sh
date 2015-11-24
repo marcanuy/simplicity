@@ -18,12 +18,18 @@ normal=$(tput sgr0)
 echo "Command to run: ${bold}duplicity $@ ${BACKUP_SERVER}${normal}"
 
 PS3='Please enter your choice: '
-options=("Confirm" "Quit")
+options=("Confirm" "Dry-Run" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
 	"Confirm")
 	    ${DUPLICITY} "$@" ${BACKUP_SERVER}
+	    break
+	    ;;
+	"Dry-Run")
+	    DRY_CMD="${DUPLICITY} $@ --dry-run ${BACKUP_SERVER}"
+	    echo "Running: ${bold}${DRY_CMD}${normal}"
+	    ${DRY_CMD}
 	    break
 	    ;;
 	"Quit")
